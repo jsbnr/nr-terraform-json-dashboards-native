@@ -1,5 +1,9 @@
-# New Relic Terraform Dashboards fomr JSON Templates
+# New Relic Terraform Dashboards from JSON Templates
 This example shows how you can use the newrelic_dashboards_json resource to provision dashboards. It includes an example for composing a dashboard from configuration, making it easy to build complex dashboards with ease.
+
+* [dash_basic.tf](dash_basic.tf) - the simplest example, copy your dashboard to clipboard and paste the json into the basic.json file.
+* [dash_replacer.tf](dash_replacer.tf) - this example takes the same dashboard but replaces some values in the title and NRQL account id's.
+* [dash_composed.tf](dash_composed.tf) - this example shows how a complex dashboard can be built using template iteration. Super cool.
 
 
 ## Installation
