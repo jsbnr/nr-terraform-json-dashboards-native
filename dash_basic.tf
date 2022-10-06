@@ -5,11 +5,11 @@
 # See dash_replace.tf for version that should work in your own account :)
 
 resource "newrelic_one_dashboard_json" "basic_dashboard" {
-   json = file("${path.module}/dashboards/basic.json")
+   json = file("${path.module}/dashboards/dashboard.json")
 }
 
 #Lets tag terraform managed dashboards!
-resource "newrelic_entity_tags" "basic_dashoard" {
+resource "newrelic_entity_tags" "basic_dashboard" {
     guid = newrelic_one_dashboard_json.basic_dashboard.guid
     tag {
         key = "terraform"

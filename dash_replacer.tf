@@ -4,7 +4,7 @@
 resource "newrelic_one_dashboard_json" "replacer_dashboard" {
    json = replace(
       replace(
-        file("${path.module}/dashboards/basic.json"),
+        file("./dashboards/dashboard.json"),
         "by Terraform"
         ,"renamed by Terraform"
       ),
@@ -14,7 +14,7 @@ resource "newrelic_one_dashboard_json" "replacer_dashboard" {
 }
 
 #Lets tag terraform managed dashboards!
-resource "newrelic_entity_tags" "replacer_dashoard" {
+resource "newrelic_entity_tags" "replacer_dashboard" {
     guid = newrelic_one_dashboard_json.replacer_dashboard.guid
     tag {
         key = "terraform"

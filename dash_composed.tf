@@ -6,10 +6,10 @@ variable "config" {
   }))
 }
 
-# This generates the 'rows' of widgets. They assume row 1 is the start row.
+# This generates the 'rows' of widgets from the CONFIG object
 data "template_file" "widgets" {
     template = templatefile(
-               "${path.module}/dashboards/composed_widgets.template.json",
+               "${path.module}/dashboards/composed_widgets.json.tftpl",
                {
                  ACCOUNTID = var.accountId
                  CONFIG = var.config
@@ -17,22 +17,12 @@ data "template_file" "widgets" {
         )
 }
 
-# This is the dashboard outer container
-data "template_file" "container" {
-    template = templatefile(
-               "${path.module}/dashboards/composed_container.template.json",
-               {
-                 WIDGETS = data.template_file.widgets.rendered
-               }
-        )
-}
-
 resource "newrelic_one_dashboard_json" "composed_dashboard" {
-   json = data.template_file.container.rendered
+   json = data.template_file.widgets.rendered
 }
 
 #Lets tag terraform managed dashboards!
-resource "newrelic_entity_tags" "composed_dashoard" {
+resource "newrelic_entity_tags" "composed_dashboard" {
     guid = newrelic_one_dashboard_json.composed_dashboard.guid
     tag {
         key = "terraform"
