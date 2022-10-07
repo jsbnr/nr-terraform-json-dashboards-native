@@ -6,6 +6,10 @@ terraform {
       source  = "newrelic/newrelic"
       version = "~> 3.4.2, <4.0.0"
     }
+    graphql = {
+      source = "sullivtr/graphql"
+      version = "2.5.2" 
+    }
   }
 }
 
