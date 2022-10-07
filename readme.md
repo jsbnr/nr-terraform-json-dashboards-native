@@ -5,7 +5,7 @@ This example shows how you can use the newrelic_dashboards_json resource to prov
 * [dash_replacer.tf](dash_replacer.tf) - this example takes the same dashboard but replaces some values in the title and NRQL account id's using replace().
 * [dash_templatefile.tf](dash_templatefile.tf) - this example takes the same dashboard but uses a templatefile() method to set title and NRQL account id's.
 * [dash_composed.tf](dash_composed.tf) - this example shows how a complex dashboard can be built using template iteration. Super cool.
-
+* [dash_nrql_composed.tf](dash_nrql_composed.tf) - this example extneds the previous and shows how a complex dashboard can be built using template iteration driven by an NRQL query that determines what items to include.
 
 ## Installation
 Make sure terraform is installed. I recommend [tfenv](https://github.com/tfutils/tfenv) for managing your terraform binaries.
