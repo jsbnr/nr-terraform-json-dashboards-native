@@ -1,3 +1,5 @@
+Moved here: https://github.com/newrelic-experimental/nr-terraform-json-dashboard-examples
+
 # New Relic Terraform Dashboards from JSON Templates
 This example shows how you can use the newrelic_dashboards_json resource to provision dashboards. It includes an example for composing a dashboard from configuration, making it easy to build complex dashboards with ease.
 
